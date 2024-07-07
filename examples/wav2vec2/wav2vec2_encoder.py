@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-from loguru import logger
 from transformers import Wav2Vec2FeatureExtractor, Wav2Vec2Model
 
 from xares.audio_encoder_base import AudioEncoderBase

@@ -2,7 +2,7 @@
 
 This repository provides a template for creating audio encoders compatible with [X-ARES: the eXtensive Audio Representation and Evaluation Suite](https://github.com/jimbozhang/xares). Your encoder should process raw audio waveforms and generate meaningful audio embeddings.
 
-**Note:** This repository is currently under development. The first official release is scheduled for August 31, 2024.
+**Note: This repository is not yet ready. The first official release is scheduled for August 31, 2024.**
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ pip install xares
 >>> import torch
 >>> audio = torch.randn(2, 48_000)
 
->>> encoder.check_input_audio(audio, encoder.sampling_rate  # Check if the input audio format is valid (provided by AudioEncoderBase)
+>>> encoder.check_input_audio(audio, encoder.sampling_rate)  # Check if the input audio format is valid (provided by AudioEncoderBase)
 True
 
 >>> encoded_audio = encoder(audio, encoder.sampling_rate)

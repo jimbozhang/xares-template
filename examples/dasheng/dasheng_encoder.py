@@ -6,7 +6,7 @@ class DashengEncoder(torch.nn.Module):
     def __init__(self):
         self.simple_rate = 16000
         self.output_dim = 768
-        self.model = dasheng_base().to(self.device)
+        self.model = dasheng_base()
 
     def forward(self, audio: torch.Tensor):
         if audio.ndim == 1:
@@ -14,6 +14,6 @@ class DashengEncoder(torch.nn.Module):
 
         self.model.eval()
         with torch.inference_mode():
-            encoded_audio = self.model(audio.to(self.device))
+            encoded_audio = self.model(audio)
 
         return encoded_audio

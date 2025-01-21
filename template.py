@@ -1,7 +1,8 @@
 import torch
+import torch.nn as nn
 
 
-class MyAwesomeModel(torch.nn.Module):
+class MyAwesomeModel(nn.Module):
     def __init__(self, output_dim):
         super().__init__()
         self.output_dim = output_dim
@@ -10,14 +11,15 @@ class MyAwesomeModel(torch.nn.Module):
         return torch.randn(x.shape[0], int(x.shape[1] / 2), self.output_dim)
 
 
-class MyEncoder:
+class MyEncoder(nn.Module):
     def __init__(self):
+        super().__init__()
         self.simple_rate = 16000  # Required. The recommended sampling rate of the input audio
         self.output_dim = 128  # Required. The output dimension of the model
 
         self.model = MyAwesomeModel(self.output_dim)  # [B, T] -> [B, T', D]
 
-    def __call__(self, audio: torch.Tensor):
+    def forward(self, audio: torch.Tensor):
         """
         Processes the input audio signal and returns the model's encoded output.
         Args:

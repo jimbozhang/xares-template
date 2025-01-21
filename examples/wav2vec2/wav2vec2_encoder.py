@@ -1,7 +1,8 @@
+import torch.nn as nn
 from transformers import Wav2Vec2FeatureExtractor, Wav2Vec2Model
 
 
-class Wav2vec2Encoder:
+class Wav2vec2Encoder(nn.Module):
     def __init__(self):
         self.simple_rate = 16000
         self.model_name = "facebook/wav2vec2-large-100k-voxpopuli"
@@ -10,7 +11,7 @@ class Wav2vec2Encoder:
         self.feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(self.model_name, cache_dir=self.cache_dir)
         self.model = Wav2Vec2Model.from_pretrained(self.model_name, cache_dir=self.cache_dir)
 
-    def __call__(self, audio):
+    def forward(self, audio):
         input_values = self.feature_extractor(
             audio, sampling_rate=self.simple_rate, return_tensors="pt"
         ).input_values.squeeze()

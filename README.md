@@ -10,7 +10,7 @@ This repository provides a template for creating audio encoders compatible with 
     cp template.py my_encoder.py
     ```
 
-1. Edit the newly created file to implement your own audio encoder. You should implement the `__call__` method, which takes an audio waveform and returns the embeddings.
+1. Edit the newly created file to implement your own audio encoder.
 
 1. Check your encoder to make sure it is compatible with X-ARES.
 

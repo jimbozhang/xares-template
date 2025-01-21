@@ -4,18 +4,24 @@ This repository provides a template for creating audio encoders compatible with 
 
 ## Steps to create your own audio encoder
 
-1. Make a copy of `template_encoder.py` in the root directory of this repository.
+1. Make a copy of `template.py`.
 
     ```bash
-    cp template_encoder.py my_encoder.py
+    cp template.py my_encoder.py
     ```
 
-1. Edit the newly created `my_encoder.py` file to implement your own audio encoder.
+1. Edit the newly created file to implement your own audio encoder. You should implement the `__call__` method, which takes an audio waveform and returns the embeddings.
+
+    ```python
+        def __call__(self, audio, sampling_rate: int | None = None):
+            # Process the audio batch and return the embeddings
+            return audio_batch
+    ```
 
 1. Check your encoder to make sure it is compatible with X-ARES.
 
     ```python
-    >>> from audio_encoder_checker import check_audio_encoder
+    >>> from xares.audio_encoder_checker import check_audio_encoder
     >>> from my_encoder import MyEncoder
 
     >>> encoder = MyEncoder()

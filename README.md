@@ -12,12 +12,6 @@ This repository provides a template for creating audio encoders compatible with 
 
 1. Edit the newly created file to implement your own audio encoder. You should implement the `__call__` method, which takes an audio waveform and returns the embeddings.
 
-    ```python
-        def __call__(self, audio, sampling_rate: int | None = None):
-            # Process the audio batch and return the embeddings
-            return audio_batch
-    ```
-
 1. Check your encoder to make sure it is compatible with X-ARES.
 
     ```python

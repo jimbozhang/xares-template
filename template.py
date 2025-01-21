@@ -14,7 +14,7 @@ class MyAwesomeModel(nn.Module):
 class MyEncoder(nn.Module):
     def __init__(self):
         super().__init__()
-        self.simple_rate = 16000  # Required. The recommended sampling rate of the input audio
+        self.sampling_rate = 16000  # Required. The recommended sampling rate of the input audio
         self.output_dim = 128  # Required. The output dimension of the model
 
         self.model = MyAwesomeModel(self.output_dim)  # [B, T] -> [B, T', D]

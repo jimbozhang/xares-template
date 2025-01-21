@@ -4,6 +4,12 @@ This repository provides a template for creating audio encoders compatible with 
 
 ## Steps to create your own audio encoder
 
+1. Install xares
+
+    ```bash
+    pip install xares
+    ```
+
 1. Make a copy of `template.py`.
 
     ```bash

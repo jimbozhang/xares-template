@@ -38,7 +38,7 @@ class MyEncoder(nn.Module):
 
 
 if __name__ == "__main__":
-    from xares.audio_encoder_checker import check_audio_encoder
+    from audio_encoder_checker import check_audio_encoder
 
     encoder = MyEncoder()
     assert check_audio_encoder(encoder)

@@ -4,10 +4,10 @@ This repository provides a template for creating audio encoders compatible with 
 
 ## Steps to create your own audio encoder
 
-1. Install xares
+1. Install dependencies
 
     ```bash
-    pip install xares
+    pip install -r requirements.txt
     ```
 
 1. Make a copy of `template.py`.
@@ -21,7 +21,7 @@ This repository provides a template for creating audio encoders compatible with 
 1. Check your encoder to make sure it is compatible with X-ARES.
 
     ```python
-    >>> from xares.audio_encoder_checker import check_audio_encoder
+    >>> from audio_encoder_checker import check_audio_encoder
     >>> from my_encoder import MyEncoder
 
     >>> encoder = MyEncoder()

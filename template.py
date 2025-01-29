@@ -17,7 +17,7 @@ class MyEncoder(nn.Module):
         self.sampling_rate = 16000  # Required. The recommended sampling rate of the input audio
         self.output_dim = 128  # Required. The output dimension of the model
 
-        self.model = MyAwesomeModel(self.output_dim)  # [B, T] -> [B, T', D]
+        self.model = MyAwesomeModel(self.output_dim)  # [B, T] -> [B, T', D], D == 128 in this model
 
     def forward(self, audio: torch.Tensor):
         """

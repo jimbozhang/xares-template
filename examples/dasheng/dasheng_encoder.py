@@ -19,10 +19,3 @@ class DashengEncoder(torch.nn.Module):
             encoded_audio = self.model(audio)
 
         return encoded_audio
-
-
-if __name__ == "__main__":
-    from xares.audio_encoder_checker import check_audio_encoder
-
-    encoder = DashengEncoder()
-    check_audio_encoder(encoder)

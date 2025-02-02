@@ -8,7 +8,7 @@ class MyAwesomeModel(nn.Module):
         self.output_dim = output_dim
 
     def forward(self, x):
-        return torch.randn(x.shape[0], int(x.shape[1] / self.sampling_rate / self.hop_size_in_ms), self.output_dim)
+        return torch.randn(x.shape[0], int(x.shape[1] / 16000 / 40), self.output_dim)  # 16000 Hz, 40 ms hop size
 
 
 class MyEncoder(nn.Module):

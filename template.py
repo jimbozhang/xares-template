@@ -8,7 +8,7 @@ class MyAwesomeModel(nn.Module):
         self.output_dim = output_dim
 
     def forward(self, x):
-        return torch.randn(x.shape[0], int(x.shape[1] / 2), self.output_dim)
+        return torch.randn(x.shape[0], int(x.shape[1] / self.sampling_rate / self.hop_size_in_ms), self.output_dim)
 
 
 class MyEncoder(nn.Module):
@@ -16,6 +16,7 @@ class MyEncoder(nn.Module):
         super().__init__()
         self.sampling_rate = 16000  # Required. The recommended sampling rate of the input audio
         self.output_dim = 128  # Required. The output dimension of the model
+        self.hop_size_in_ms = 40  # Required. The hop size in milliseconds
 
         self.model = MyAwesomeModel(self.output_dim)  # [B, T] -> [B, T', D]
 

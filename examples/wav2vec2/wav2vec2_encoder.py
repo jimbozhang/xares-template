@@ -7,14 +7,14 @@ class Wav2vec2Encoder(nn.Module):
         super().__init__()
         self.sampling_rate = 16000
         self.model_name = "facebook/wav2vec2-large-100k-voxpopuli"
-        self.cache_dir = "pretrained/"
         self.output_dim = 1024
-        self.feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(self.model_name, cache_dir=self.cache_dir)
-        self.model = Wav2Vec2Model.from_pretrained(self.model_name, cache_dir=self.cache_dir)
+        self.hop_size_in_ms = 20
+        self.feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained(self.model_name)
+        self.model = Wav2Vec2Model.from_pretrained(self.model_name)
 
     def forward(self, audio):
         input_values = self.feature_extractor(
             audio, sampling_rate=self.sampling_rate, return_tensors="pt"
         ).input_values.squeeze()
 
-        return self.model(input_values)["last_hidden_state"]
+        return self.model(input_values.to(self.model.device))["last_hidden_state"]

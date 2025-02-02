@@ -29,7 +29,7 @@ class MyEncoder(nn.Module):
             torch.Tensor: The model's encoded output. The output tensor has shape [B, T', D], where T' can be different from the input T.
         """
         if audio.ndim == 1:
-            audio = audio.unsqueeze(0)
+            audio = audio.unsqueeze(0)  # For robust, but NOT required to do this
 
         self.model.eval()
         with torch.inference_mode():
